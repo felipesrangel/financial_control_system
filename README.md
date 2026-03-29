@@ -1,59 +1,116 @@
-# FinanceDashboard
+# 💼 Financial Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Aplicação web para gestão financeira pessoal, desenvolvida com foco em organização, análise de dados e boas práticas de engenharia de software.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📌 Overview
+
+O **Financial Management System** é uma aplicação fullstack que permite ao usuário controlar seus gastos e recebimentos de forma estruturada, oferecendo visualizações analíticas e filtros avançados para tomada de decisão.
+
+O projeto foi desenvolvido com foco em:
+
+- Clareza na visualização de dados financeiros  
+- Escalabilidade da arquitetura  
+- Boas práticas de desenvolvimento moderno  
+
+---
+
+## 🧱 Tech Stack
+
+### Frontend
+- Angular  
+- PrimeNG  
+- TypeScript  
+- SCSS  
+
+### Backend
+- .NET (C#)  
+- API RESTful  
+- Arquitetura baseada em princípios SOLID e DDD  
+
+### Database
+- MySQL  
+
+---
+
+## ⚙️ Core Features
+
+### 📊 Financial Dashboard
+- Visualização consolidada das finanças  
+- Gráfico de pizza com distribuição percentual entre:
+  - Gastos  
+  - Recebimentos  
+
+---
+
+### 💸 Transaction Management
+- Cadastro de transações financeiras com:
+  - Valor  
+  - Data  
+  - Descrição  
+  - Método de pagamento  
+- Estrutura preparada para expansão futura (categorias, tags, etc.)
+
+---
+
+### 🔍 Advanced Filtering
+- Filtros dinâmicos por:
+  - Dia  
+  - Mês  
+  - Ano  
+  - Intervalo personalizado  
+- Atualização em tempo real dos dados exibidos  
+
+---
+
+### 📈 Financial Summary
+- Total de gastos  
+- Total de recebimentos  
+- Saldo consolidado por período  
+
+---
+
+## 🏗️ Architecture & Design
+
+O sistema foi estruturado seguindo boas práticas de engenharia:
+
+### Frontend
+- Arquitetura baseada em **feature modules**  
+- Separação clara entre:
+  - Components  
+  - Services  
+  - Models / Interfaces  
+- Uso de **Reactive Forms**  
+- Organização com **shared modules**  
+
+---
+
+### Backend
+- Estrutura em camadas:
+  - Application  
+  - Domain  
+  - Infrastructure  
+- Aplicação de conceitos como:
+  - Domain-Driven Design (DDD)  
+  - Injeção de dependência  
+  - DTOs  
+
+---
+
+## 🎯 Key Highlights
+
+- Código organizado e reutilizável  
+- Separação de responsabilidades bem definida  
+- Estrutura preparada para escalabilidade  
+- Integração completa entre frontend e backend  
+
+---
+
+## 🚀 Running the Project
+
+### Frontend
 
 ```bash
+npm install
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
