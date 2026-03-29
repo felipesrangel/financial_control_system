@@ -1,0 +1,105 @@
+@import 'app/shared/styles/_variables';
+@import 'app/shared/styles/_components';
+
+// ── Base ─────────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  background: #F8FAFC;
+  color: $slate-900;
+  min-height: 100vh;
+}
+// ── Dashboard layout ─────────────────────────────────────────────────
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 28px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.greeting {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -.5px;
+  color: $slate-900;
+}
+
+// Period tabs
+.period-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: $slate-100;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.period-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: .8rem;
+  font-weight: 500;
+  color: $slate-500;
+  padding: 6px 14px;
+  border-radius: 7px;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+
+  &:hover { color: $slate-700; }
+
+  &.active {
+    background: $white;
+    color: $blue;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+}
+
+.period-calendar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: $slate-500;
+}
+
+// ── Bottom section ────────────────────────────────────────────────────
+.bottom-grid {
+  display: grid;
+  @include grid-columns-2up;
+  gap: 16px;
+  align-items: start;
+}
+
+// ── Chart card ────────────────────────────────────────────────────────
+
+// Legend
+
+
+// ── Transactions card ─────────────────────────────────────────────────
+
+
+// ── Responsive ────────────────────────────────────────────────────────
+@include respond-to('lg') {
+  .bottom-grid { grid-template-columns: 1fr; }
+}
+
+@include respond-to('md') {
+  .summary-grid,
+  .actions-grid { grid-template-columns: 1fr; }
+
+  .nav-links { display: none; }
+
+  .dashboard { padding: 20px 16px 40px; }
+}

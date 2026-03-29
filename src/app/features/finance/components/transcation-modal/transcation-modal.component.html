@@ -1,0 +1,117 @@
+<p-dialog
+  [(visible)]="visible"
+  (onHide)="close()"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [closable]="true"
+  styleClass="transaction-dialog"
+  [style]="{ width: '460px' }">
+
+  <!-- ── Header ── -->
+  <ng-template pTemplate="header">
+    <div class="modal-header">
+      <span class="modal-icon" [ngClass]="current.iconClass">
+        <i [class]="current.icon"></i>
+      </span>
+      <span class="modal-title">{{ current.title }}</span>
+    </div>
+  </ng-template>
+
+  <!-- ── Body ── -->
+  <ng-template pTemplate="content">
+    <div class="form-body">
+
+      <!-- Description -->
+      <div class="field">
+        <label for="description">Description</label>
+        <input
+          pInputText
+          id="description"
+          [(ngModel)]="form.description"
+          placeholder="e.g. Freelance payment, Netflix..."
+          [class.ng-invalid]="errors['description']"
+          [class.ng-dirty]="errors['description']" />
+        <small class="field-error" *ngIf="errors['description']">
+          <i class="pi pi-exclamation-circle"></i> {{ errors['description'] }}
+        </small>
+      </div>
+
+      <!-- Method -->
+      <div class="field">
+        <label for="method">Payment Method</label>
+        <p-dropdown
+          inputId="method"
+          [options]="methodOptions"
+          [(ngModel)]="form.method"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Select a method"
+          styleClass="w-full"
+          [class.ng-invalid]="errors['method']"
+          [class.ng-dirty]="errors['method']" />
+        <small class="field-error" *ngIf="errors['method']">
+          <i class="pi pi-exclamation-circle"></i> {{ errors['method'] }}
+        </small>
+      </div>
+
+      <!-- Date + Amount (side by side) -->
+      <div class="field-row">
+
+        <div class="field">
+          <label for="date">Date</label>
+          <p-calendar
+            inputId="date"
+            [(ngModel)]="form.date"
+            dateFormat="dd/mm/yy"
+            [showIcon]="true"
+            [showButtonBar]="true"
+            placeholder="dd/mm/yyyy"
+            styleClass="w-full"
+            [class.ng-invalid]="errors['date']"
+            [class.ng-dirty]="errors['date']" />
+          <small class="field-error" *ngIf="errors['date']">
+            <i class="pi pi-exclamation-circle"></i> {{ errors['date'] }}
+          </small>
+        </div>
+
+        <div class="field">
+          <label for="amount">Amount</label>
+          <p-inputNumber
+            inputId="amount"
+            [(ngModel)]="form.amount"
+            mode="currency"
+            currency="USD"
+            locale="en-US"
+            placeholder="0.00"
+            styleClass="w-full"
+            [class.ng-invalid]="errors['amount']"
+            [class.ng-dirty]="errors['amount']" />
+          <small class="field-error" *ngIf="errors['amount']">
+            <i class="pi pi-exclamation-circle"></i> {{ errors['amount'] }}
+          </small>
+        </div>
+
+      </div>
+
+    </div>
+  </ng-template>
+
+  <!-- ── Footer ── -->
+  <ng-template pTemplate="footer">
+    <div class="modal-footer">
+      <p-button
+        label="Cancel"
+        [text]="true"
+        severity="secondary"
+        (onClick)="close()" />
+
+      <p-button
+        [label]="current.btnLabel"
+        [icon]="current.icon"
+        [severity]="current.btnSeverity"
+        (onClick)="submit()" />
+    </div>
+  </ng-template>
+
+</p-dialog>

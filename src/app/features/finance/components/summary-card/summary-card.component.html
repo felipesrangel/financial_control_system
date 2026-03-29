@@ -1,0 +1,20 @@
+<div class="summary-grid">
+    @for(s of summary; track s){
+      <div class="card summary-card">
+        <span class="card-label">{{ s.label }}</span>
+        <div class="card-value-row">
+          <span class="card-value">{{ s.value | appCurrency }}</span>
+          <span class="badge" [class.badge-up]="isPositive(s.change)" [class.badge-down]="!isPositive(s.change)">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+              @if (isPositive(s.change)) {
+                <path d="M12 4l8 16H4z"/>
+              } @else {
+                <path d="M12 20L4 4h16z"/>
+              }
+            </svg>
+            {{ (isPositive(s.change) ? '+' : '') + s.change }}%
+          </span>
+        </div>
+      </div>
+    }
+  </div>

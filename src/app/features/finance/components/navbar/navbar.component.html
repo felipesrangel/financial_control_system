@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <rect width="10" height="10" rx="2" fill="#3B82F6"/>
+      <rect x="12" width="10" height="10" rx="2" fill="#6366F1"/>
+      <rect y="12" width="10" height="10" rx="2" fill="#6366F1" opacity=".5"/>
+      <rect x="12" y="12" width="10" height="10" rx="2" fill="#3B82F6" opacity=".5"/>
+    </svg>
+    <span class="brand-name">financy</span>
+  </div>
+
+  <ul class="nav-links">
+    @for(link of ['Overview','Transactions','Analytics','Accounts','Wallet']; track link){
+      <li>
+        <a [class.active]="link === 'Overview'" href="#">{{ link }}</a>
+      </li>
+    }
+  </ul>
+
+  <div class="nav-actions">
+    <button class="icon-btn" title="Settings">
+      <i class="pi pi-cog" style="font-size: 1.25rem;"></i>
+    </button>
+    <button class="icon-btn" title="Notifications">
+      <i class="pi pi-bell" style="font-size: 1.25rem;"></i>
+    </button>
+    <div class="avatar">
+      <img src="https://i.pravatar.cc/36?img=12" alt="Mark" />
+    </div>
+  </div>
+</nav>

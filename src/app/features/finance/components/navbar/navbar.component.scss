@@ -1,0 +1,84 @@
+@import 'app/shared/styles/_variables';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 0 32px;
+  margin: 0 63.5px;
+  height: 60px;
+  background: $white;
+  border-bottom: 1px solid $slate-100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -.3px;
+  color: $slate-900;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.brand-name { font-size: .95rem; font-weight: 700; }
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    font-size: .875rem;
+    font-weight: 500;
+    color: $slate-500;
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: color .15s, background .15s;
+
+    &:hover    { color: $slate-900; background: $slate-100; }
+    &.active   { color: $blue; font-weight: 600; }
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $slate-500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  transition: background .15s, color .15s;
+
+  &:hover { background: $slate-100; color: $slate-700; }
+}
+
+.avatar img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $slate-100;
+  display: block;
+}

@@ -1,0 +1,21 @@
+// ── Shared Component Styles ─────────────────────────────────────────────────
+
+.card {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  border: 1px solid rgba($slate-300, .4);
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: $slate-900;
+  margin-bottom: 4px;
+}
+
+.section-sub {
+  font-size: .78rem;
+  color: $slate-500;
+  margin-bottom: 16px;
+}

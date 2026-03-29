@@ -1,0 +1,50 @@
+@import 'app/shared/styles/_variables';
+@import 'app/shared/styles/_components';
+
+.summary-grid {
+  display: grid;
+  @include grid-columns-3;
+  gap: 16px;
+}
+
+.summary-card {
+  padding: 22px 24px;
+
+  .card-label {
+    font-size: .78rem;
+    font-weight: 500;
+    color: $slate-500;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  .card-value-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .card-value {
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -.5px;
+    color: $slate-900;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+
+  &.badge-up   { color: $green; background: rgba($green, .12); }
+  &.badge-down { color: $red;   background: rgba($red,   .12); }
+
+  svg { flex-shrink: 0; }
+}

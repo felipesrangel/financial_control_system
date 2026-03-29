@@ -1,0 +1,31 @@
+<div class="card chart-card">
+  <h2 class="section-title">Expenses by category</h2>
+
+  <div class="donut-wrapper">
+    <svg viewBox="0 0 160 160" class="donut-svg">
+      <circle cx="80" cy="80" r="60" fill="none" stroke="#F1F5F9" stroke-width="26"/>
+      @for(seg of chartSegments; track seg){
+        <circle
+          cx="80" cy="80" r="60"
+          fill="none"
+          [attr.stroke]="seg.color"
+          stroke-width="26"
+          [attr.stroke-dasharray]="seg.dash + ' ' + (376.99 - seg.dash)"
+          [attr.stroke-dashoffset]="seg.offset"
+          class="donut-seg"/>
+      } 
+    </svg>
+  </div>
+
+  <ul class="legend">
+    @for(cat of categories; track cat){
+      <li class="legend-item">
+        <span class="legend-dot" [style.background]="cat.color">
+          <i [class]="cat.icon" style="font-size:9px;color:#fff"></i>
+        </span>
+        <span class="legend-name">{{ cat.name }}</span>
+        <span class="legend-pct">{{ cat.percentage | number:'1.2-2' }}%</span>
+      </li>
+    }
+  </ul>
+</div>

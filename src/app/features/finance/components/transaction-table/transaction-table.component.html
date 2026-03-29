@@ -1,0 +1,63 @@
+<div class="card transactions-card">
+  <div class="transactions-header">
+    <div>
+      <h2 class="section-title">Last transactions</h2>
+      <p class="section-sub">Check your last transactions</p>
+    </div>
+  </div>
+
+  <table class="tx-table">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Method</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(tx of transactions; track tx){
+        <tr class="tx-row">
+          <td class="tx-desc-cell">
+            @if (isPerson(tx)) {
+              <!-- Initials avatar -->
+              <span
+                class="tx-avatar"
+                [style.background]="getInitialsColor(tx.initials)">
+                {{ tx.initials }}
+              </span>
+            } @else {
+              <!-- Icon avatar -->
+              <span
+                class="tx-avatar"
+                [style.background]="getIconBg(tx.icon)">
+                {{ getIconLabel(tx.icon) }}
+              </span>
+            }
+            <span class="tx-name">{{ tx.description }}</span>
+          </td>
+          <td class="tx-method">{{ tx.method }}</td>
+          <td class="tx-date">{{ tx.date | date:'yyyy/MM/dd' }}</td>
+          <td class="tx-amount" [class.positive]="tx.amount > 0" [class.negative]="tx.amount < 0">
+            {{ (tx.amount > 0 ? '+' : '') + (tx.amount | appCurrency) }}
+          </td>
+          <td class="tx-menu">
+            <p-menu 
+              #menu 
+              [model]="items" 
+              [popup]="true" 
+              appendTo="body"
+            />
+            <p-button 
+              icon="pi pi-ellipsis-v" 
+              (click)="menu.toggle($event)" 
+              [text]="true"
+              severity="secondary"
+            />
+          </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
