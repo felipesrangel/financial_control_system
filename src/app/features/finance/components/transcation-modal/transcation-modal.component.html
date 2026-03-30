@@ -40,7 +40,7 @@
       <!-- Method -->
       <div class="field">
         <label for="method">Payment Method</label>
-        <p-dropdown
+        <p-select
           inputId="method"
           [options]="methodOptions"
           [(ngModel)]="form.method"
@@ -50,9 +50,12 @@
           styleClass="w-full"
           [class.ng-invalid]="errors['method']"
           [class.ng-dirty]="errors['method']" />
-        <small class="field-error" *ngIf="errors['method']">
-          <i class="pi pi-exclamation-circle"></i> {{ errors['method'] }}
-        </small>
+
+          @if(errors['method']){
+            <small class="field-error">
+              <i class="pi pi-exclamation-circle"></i> {{ errors['method'] }}
+            </small>
+          }
       </div>
 
       <!-- Date + Amount (side by side) -->
@@ -60,7 +63,7 @@
 
         <div class="field">
           <label for="date">Date</label>
-          <p-calendar
+          <p-datepicker
             inputId="date"
             [(ngModel)]="form.date"
             dateFormat="dd/mm/yy"
@@ -70,9 +73,12 @@
             styleClass="w-full"
             [class.ng-invalid]="errors['date']"
             [class.ng-dirty]="errors['date']" />
-          <small class="field-error" *ngIf="errors['date']">
-            <i class="pi pi-exclamation-circle"></i> {{ errors['date'] }}
-          </small>
+
+            @if(errors['method']){
+            <small class="field-error">
+              <i class="pi pi-exclamation-circle"></i> {{ errors['date'] }}
+            </small>
+          }
         </div>
 
         <div class="field">
@@ -87,9 +93,11 @@
             styleClass="w-full"
             [class.ng-invalid]="errors['amount']"
             [class.ng-dirty]="errors['amount']" />
-          <small class="field-error" *ngIf="errors['amount']">
-            <i class="pi pi-exclamation-circle"></i> {{ errors['amount'] }}
-          </small>
+            @if(errors['method']){
+            <small class="field-error">
+              <i class="pi pi-exclamation-circle"></i> {{ errors['amount'] }}
+            </small>
+          }
         </div>
 
       </div>

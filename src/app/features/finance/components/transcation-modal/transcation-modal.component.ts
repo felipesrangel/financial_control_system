@@ -6,11 +6,11 @@ import { DialogModule }       from 'primeng/dialog';
 import { ButtonModule }       from 'primeng/button';
 import { InputTextModule }    from 'primeng/inputtext';
 import { InputNumberModule }  from 'primeng/inputnumber';
-import { CalendarModule }     from 'primeng/calendar';
-import { DropdownModule }     from 'primeng/dropdown';
 import { DividerModule }      from 'primeng/divider';
 import { TransactionForm } from 'src/app/features/finance/models/transaction-form';
 import { TransactionType } from 'src/app/features/finance/models/transaction';
+import { SelectModule } from 'primeng/select';
+import { DatePicker } from 'primeng/datepicker';
 
 @Component({
   selector: 'app-transcation-modal',
@@ -24,9 +24,9 @@ import { TransactionType } from 'src/app/features/finance/models/transaction';
     ButtonModule,
     InputTextModule,
     InputNumberModule,
-    CalendarModule,
-    DropdownModule,
     DividerModule,
+    SelectModule,
+    DatePicker
   ]
 })
 export class TranscationModalComponent implements OnChanges  {

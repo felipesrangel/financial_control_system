@@ -74,5 +74,6 @@ export class DashboardComponent implements OnInit {
  
     // Adiciona no topo da lista
     this.transactions = [newTransaction, ...this.transactions];
+    console.log('New transaction added:', newTransaction);
   }
 }
