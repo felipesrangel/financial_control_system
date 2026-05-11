@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SummaryCard } from 'src/app/features/finance/models/summary-card';
-import { FinanceService } from 'src/app/features/finance/services/finance.service';
 import { SharedNgModule } from 'src/app/shared/shared.module';
 
 
@@ -13,13 +12,11 @@ import { SharedNgModule } from 'src/app/shared/shared.module';
 })
 export class SummaryCardComponent implements OnInit {
 
-  summary: SummaryCard[] = [];
+  @Input() summary: SummaryCard[] = [];
 
-  constructor(private financeService: FinanceService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.summary = this.financeService.getSummary();
-    
+  ngOnInit() {    
   }
 
   isPositive(value: number): boolean {

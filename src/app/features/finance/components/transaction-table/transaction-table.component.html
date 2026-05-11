@@ -17,35 +17,25 @@
       </tr>
     </thead>
     <tbody>
-      @for(tx of transactions; track tx){
+      @for(tx of transactions; track tx.id){
         <tr class="tx-row">
           <td class="tx-desc-cell">
-            @if (isPerson(tx)) {
-              <!-- Initials avatar -->
-              <span
-                class="tx-avatar"
-                [style.background]="getInitialsColor(tx.initials)">
-                {{ tx.initials }}
-              </span>
-            } @else {
-              <!-- Icon avatar -->
-              <span
-                class="tx-avatar"
-                [style.background]="getIconBg(tx.icon)">
-                {{ getIconLabel(tx.icon) }}
-              </span>
-            }
+            <span
+              class="tx-avatar"
+                [style.background]="getTransactionAvatarBackground(tx)">
+                {{ getTransactionAvatarLabel(tx) }}
+            </span>
             <span class="tx-name">{{ tx.description }}</span>
           </td>
-          <td class="tx-method">{{ tx.method }}</td>
-          <td class="tx-date">{{ tx.date | date:'yyyy/MM/dd' }}</td>
-          <td class="tx-amount" [class.positive]="tx.amount > 0" [class.negative]="tx.amount < 0">
-            {{ (tx.amount > 0 ? '+' : '') + (tx.amount | appCurrency) }}
+          <td class="tx-method">{{ getPaymentMethodLabel(tx.paymentMethod) }}</td>
+          <td class="tx-date">{{ tx.launchDate | date:'yyyy/MM/dd' }}</td>
+          <td class="tx-amount" [class.positive]="!isExpense(tx.categoryId)" [class.negative]="isExpense(tx.categoryId)">
+            {{ (isExpense(tx.categoryId) ? '-' : '+') + (getDisplayValue(tx) | appCurrency) }}
           </td>
           <td class="tx-menu">
             <p-menu 
               #menu 
-              [model]="items" 
+              [model]="getMenuItems(tx.id)" 
               [popup]="true" 
               appendTo="body"
             />

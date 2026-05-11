@@ -10,6 +10,15 @@ body {
   color: $slate-900;
   min-height: 100vh;
 }
+
+// ── Spinner layout ─────────────────────────────────────────────────
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; // ocupa a tela toda
+}
+
 // ── Dashboard layout ─────────────────────────────────────────────────
 .dashboard {
   max-width: 1200px;
